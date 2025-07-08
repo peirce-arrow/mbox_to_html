@@ -37,5 +37,18 @@ Html files are foldered in this structure:
             - UNREFORMATTED HTML OF EMAIL STRAIGHT FROM THUNDERBIRD
             - ...
 
+Once html files are extracted, the script will move all html files out of the messages folder and into the top-level folder for the particular department.
 
-      
+The script will then normalize all the filenames, removing every character, including emojis, with the exceptions of numbers, letters, dashes, and underscores. This will be important when hosting and crawling the individual html files.
+
+All files (included folders for embedded images and attachments) are then copied to a new directory for upload to a web server.
+
+The script then creates lists of embedded images and attachments. But why?
+
+Then metadata is scraped from the files and formatted in such a way that it can be batch uploaded to Archive-It after the individual html pages are crawled.
+
+Once files are uploaded to the web server, Archive-It crawls the index page. The index page is set to 'private' (or rather, the box next to "Visible to the public" is unchecked). Once the crawl is completed, the metadata file is uploaded, and the individual html files are accessible through the public-facing Archive-It page via the various metadata fields—department name, date, and subject (which we label "SVA Newsletters"). 
+
+The captured html files will display all the proper email-heading information, will include all linked and embedded images, and will link to the proper attachments, which are also crawled.
+
+The URLs for the html files will likely be odd, since they will include the URL of the host (in our case, github.io and neocities.org), but with the index page suppressed, the files can be accessed through the Archive-It metadata.
